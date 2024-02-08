@@ -1,0 +1,204 @@
+body, html {
+  margin: 0;
+  padding: 0;
+     touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+      overflow: hidden;
+        user-select: none;
+}
+
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('stage1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+
+#player {
+  position: absolute;
+  left:50%;
+  top:50%;
+  width: 84.7px; /* Individual frame width */
+  height: 128px; /* Individual frame height */
+  animation: playerIdle 3s steps(20) infinite;
+  z-index: 1;
+}
+
+@keyframes playerIdle {
+  from { background-position: 0; }
+  to { background-position: -1694px; } /* Total sprite width */
+}
+
+#joystick {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#joystick .stick {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 50%;
+}
+.enemy {
+  position: absolute;
+  width: 128px; /* Individual frame width */
+  height: 128px; /* Individual frame height */
+   background-image: url('enemysprite.png');
+  background-size: cover;
+  animation: enemyAnimation 2s steps(17) infinite;
+  z-index: 2;
+}
+
+@keyframes enemyAnimation {
+  from { background-position: 0; }
+  to { background-position: -2350px; } /* Total sprite width (260px * 4 frames) */
+}
+
+
+.flipped {
+  transform: scaleX(-1);
+}
+.enemy.flipped-vertical {
+  transform: scaleY(-1);
+}
+.bullet {
+  width: 10px;
+  height: 20px;
+  background: linear-gradient(to bottom, #F9C223, #ff0000); /* Adjust the colors as needed */
+  border-radius: 50%; /* This creates a circular shape with rounded corners */
+  position: absolute;
+  z-index: 999;
+}
+.explosion {
+  width: 400px;
+  height: 360px;
+  animation: explodeAnimation 0.5s steps(0) forwards;
+   z-index: 999;
+}
+
+@keyframes explodeAnimation {
+  to {
+    opacity: 0;
+     z-index: 999;
+  }
+}
+
+
+.boss-enemy {
+  width: 128px; /* Adjust the width as needed */
+  height: 128px; /* Adjust the height as needed */
+  background-color: transparent; /* Set a distinct background color for the boss */
+  position: absolute;
+  overflow: hidden; /* Ensure overflow is hidden for the HP bar */
+height: 128px; /* Individual frame height */
+   background-image: url('enemysprite.png');
+  background-size: cover;
+  animation: enemyAnimation 2s steps(17) infinite;
+}
+
+.boss-enemy .hp-bar {
+  height: 10px; /* Adjust the height of the HP bar */
+  width: 100%; /* Set the initial width to 100% */
+  background-color: green; /* Set the color of the HP bar */
+  position: absolute;
+  bottom: 30; /* Position the HP bar at the bottom of the boss-enemy element */
+ border-radius: 5px;
+}
+
+.boss-enemy.flipped-vertical .hp-bar {
+  /* If the boss-enemy is flipped vertically, adjust the HP bar accordingly */
+  transform: scaleY(-1);
+}
+
+#player-hp-bar {
+  position: absolute;
+  top: 10px; /* Adjust the top position */
+  left: 10px; /* Adjust the left position */
+  width: 30; /* Initial width of the HP bar */
+  height: 10px; /* Height of the HP bar */
+  background-color: green; /* Color of the HP bar */
+   border-radius: 5px;
+}
+/* Add this CSS code to your existing styles or create a new CSS file */
+.boss-bullet {
+  width: 10px;
+  height: 20px;
+  background-color: transparent;
+  position: absolute;
+  z-index: 1; /* Ensure bullets appear above other elements */
+}
+.boss-bullet {
+ width: 40px; /* Individual frame width */
+   height: 50px; /* Individual frame height */
+    background-image: url('enemysprite.png');
+   background-size: cover;
+
+   z-index: 2;
+
+}
+
+.game-screen {
+  display: none;
+  position: fixed; /* Use fixed positioning for centering */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 99999;
+}
+
+/* Additional styling for game-over screen */
+#game-over-screen {
+  display: none; /* Hide initially */
+  border: 2px solid #FF5252; /* Red border */
+}
+
+/* Additional styling for win screen */
+#win-screen {
+  display: none; /* Hide initially */
+  border: 2px solid #4CAF50; /* Green border */
+}
+/* Style for buttons */
+button {
+  padding: 15px 25px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover effect for buttons */
+button:hover {
+  filter: brightness(90%); /* Slightly reduce brightness on hover */
+}
+
+/* Additional styling for reset buttons */
+button.reset {
+  color: white;
+}
+
+/* Hover effect for reset buttons */
+button.reset:hover {
+  filter: brightness(90%); /* Slightly reduce brightness on hover */
+}
+
+

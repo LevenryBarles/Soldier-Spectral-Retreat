@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by Benedict</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Free Roaming Game with Joystick</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/nipplejs"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
+</head>
+<body>
+  <div class="game-container">
+
+    <!-- Joystick container -->
+    <div class="zone" id="joystick">
+      <div class="stick"></div>
+    </div>
+    <!-- Player -->
+    <div id="player" class="player-idle"></div>
+      <div id="player-hp-bar" class="hp-bar"></div>
+
+      <div id="game-over-screen" class="game-screen">
+          <h1>Game Over!</h1>
+          <button onclick="resetGame()">Play Again</button>
+      </div>
+
+      <div id="win-screen" class="game-screen">
+          <h1>You Win!</h1>
+          <button onclick="resetGame()">Play Again</button>
+      </div>
+
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
